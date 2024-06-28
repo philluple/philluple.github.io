@@ -1,5 +1,6 @@
 {
   "name": "portfolio",
+  "homepage":"https://philluple.github.io/portfolio.io/",
   "private": true,
   "version": "0.0.0",
   "type": "module",

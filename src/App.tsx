@@ -3,11 +3,11 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Layout from './components/Layout'
-import { BrowserRouter } from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter >
       <Routes>
         <Route path ="/" element={<Layout/>}>
           <Route path="/" element={<Home/>}></Route>
@@ -15,7 +15,7 @@ export default function App() {
           <Route path="/experience" element={<Experience/>}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     
   )
 }
