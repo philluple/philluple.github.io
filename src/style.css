@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Argesta";
+  src: local("Argesta"), url("./assets/fonts/Argesta.woff") format("woff");
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("./assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("./assets/RobotoMono-Medium.ttf") format("truetype");
+  font-weight: medium;
+  font-style: medium;
+}
+
+body {
+  background-color: #F5F5F5 !important;
+}

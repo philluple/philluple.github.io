@@ -1,0 +1,71 @@
+
+.nav {
+    background-color: #F5F5F5 !important;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  a:visited {
+    color: inherit; /* Keeps the link color as the default color */
+  }
+  
+  .nav img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav img:hover{
+    filter: brightness(1.2); /* Lighten the image */
+    transform: scale(1.1); /* Magnify the image */
+  }
+  
+  .nav li {
+    color: #0927eb !important;
+    font-family: "RobotoMono", sans-serif;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav li {
+    line-height: 0; /* Adjust line-height to reduce vertical spacing */
+  }
+  
+  .nav li::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #0927eb;
+    transition: width 0.3s ease;
+  }
+  
+  .nav li:hover{
+    color: #6a98f0 !important; /* Lighten the color */
+    transform: scale(1.1); /* Magnify the link */
+  }
+  
+  .nav li:hover::after{
+    width: 100%; /* Animate underline */
+  }
+  
+  
+  .nav li:hover {
+    color: #6a98f0 !important; /* Lighten the color */
+    transform: scale(1.1); /* Magnify the link */
+  }
+  

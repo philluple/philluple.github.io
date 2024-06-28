@@ -1,0 +1,38 @@
+.mid-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    text-align: center;
+    padding: 0 20px; /* Add padding for small screens */
+
+}
+
+.large-name {
+    font-family: "Argesta", serif;
+    font-size: 175px;
+    color: #0927eb !important;
+    padding: 0;
+    letter-spacing: -5px; /* Adjust the spacing as needed */
+}
+
+.description {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 16px;
+    margin-top: -5px; /* Add negative margin if needed */
+    max-width: 400px; /* Adjust width as necessary */
+    word-wrap: break-word; /* Ensure long words are properly broken up */
+    padding: 0;
+}
+
+.contact {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 16px;
+    margin-top: 40px;
+    max-width: 400px; /* Adjust width as necessary */
+    word-wrap: break-word; /* Ensure long words are properly broken up */
+    padding: 0;
+    color: #0927eb !important;
+    text-decoration: underline; /* Underline the text */
+}
