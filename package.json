@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage":"https://philluple.github.io/portfolio/",
+  "homepage":"https://philluple.github.io/portfolio.io/",
   "type": "module",
   "scripts": {
     "dev": "vite",
