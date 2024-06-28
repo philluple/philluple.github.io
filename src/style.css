@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "RobotoMono";
-  src: url("./assets/RobotoMono-Medium.ttf") format("truetype");
+  src: url("./assets/fonts/RobotoMono-Medium.ttf") format("truetype");
   font-weight: medium;
   font-style: medium;
 }

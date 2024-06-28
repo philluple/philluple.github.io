@@ -1,12 +1,6 @@
-import { Link, useResolvedPath, useMatch } from 'react-router-dom'; // Import appropriate hooks from your routing library
+import { Link } from 'react-router-dom'; // Import appropriate hooks from your routing library
 import "./styling/Navbar.css"
 
-interface CustomLinkProps {
-  to: string;
-  children: React.ReactNode;
-  className?: string;
-  // Add any other props you want to pass down to the Link component
-}
 
 export default function Navbar() {
     return (
@@ -15,7 +9,6 @@ export default function Navbar() {
                 <img
                 src="/logo.svg"
                 height="40"
-                className="d-inline-block align-top"
                 alt="React Bootstrap logo"
                 />
             </Link>
@@ -33,17 +26,5 @@ export default function Navbar() {
     );
 }
 
-const CustomLink: React.FC<CustomLinkProps> = ({ to, children, className, ...props }) => {
-    const resolvedPath = useResolvedPath(to);
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-  
-    return (
-      <li className={isActive ? "active" : ""}>
-        <Link to={to} className={className} {...props}>
-          {children}
-        </Link>
-      </li>
-    );
-};
   
   
