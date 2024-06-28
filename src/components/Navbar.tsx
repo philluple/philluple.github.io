@@ -21,7 +21,6 @@ export default function Navbar() {
                     <Link to="/projects">Projects</Link>
                 </li>
             </ul>
-            
         </nav>
     );
 }
