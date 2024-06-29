@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'; // Import appropriate hooks from your routing library
 import "./styling/Navbar.css"
 
-
 export default function Navbar() {
     return (
         <nav className="nav">
             <Link to="/">
                 <img
-                src="/logo.svg"
+                src="./logo.svg"
                 height="40"
                 alt="React Bootstrap logo"
                 />
