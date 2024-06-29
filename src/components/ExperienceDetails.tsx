@@ -7,7 +7,11 @@ const ExperienceDetails: FC<ExperienceJson>= (data) => {
     return (
         <>
           <div className='custom-body'>
-            <div className='long-text'>{data.description}</div>
+            <div className='text-container'>
+              {data.description.split('\n').map((line, index) => (
+                  <p className="long-text" key={index}>{line}</p>
+              ))}
+            </div>
           </div>
         </>
     )
