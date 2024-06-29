@@ -5,7 +5,7 @@ import '../components/styling/Experience.css';
 
 const ExperiencePage: FC<ExperienceProps>= (experiences) => {
   return (
-    <div>
+    <div className='custom-body'>
       {experiences && (
         <div>
           {/* Example: Render data for each company */}

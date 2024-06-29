@@ -1,8 +1,11 @@
 :root {
-  --dark-blue: #0927eb; /* Define a root variable for primary color */
+  --dark-blue: #0927eb; 
+  --default-bg:#F5F5F5;
   --light-blue: #6a98f0;
   --med-gray: #7d7f7c;
-  --nasa: #0A3B8D;
+  --nasa: #03112C;
+  --rela: #212529;
+  --ta: #6CADDE;
 }
 
 @font-face {
@@ -25,6 +28,9 @@
 }
 
 body {
-  background-color: #F5F5F5 !important;
-  margin: 0 80px !important; 
+  background-color: var(--default-bg);
+}
+
+.custom-body{
+    margin: 0 80px !important; 
 }
