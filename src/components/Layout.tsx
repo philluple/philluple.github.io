@@ -1,11 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import { CaptionProps } from '../interface/App.types';
+import { FC } from 'react';
 import Navbar from './Navbar';
 
-export default function Layout() {
+const Layout: FC<CaptionProps> = (captions) =>{
   return (
     <>
-      <Navbar />
+      <Navbar {...captions}/>
       <Outlet />
     </>
   );
 }
+
+export default Layout

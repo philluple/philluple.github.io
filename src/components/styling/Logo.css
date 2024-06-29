@@ -1,0 +1,47 @@
+#logo-container{
+  display: flex;
+  align-items: flex-start;
+  height: 50px;
+  flex-direction: column; 
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+#logo-container:hover{
+  filter: brightness(1.2); /* Lighten the image */
+  transform: scale(1.1); /* Magnify the image */
+}
+
+#title-base{
+  font-family: "RobotoMono", sans-serif;
+  font-weight: medium;
+  font-style: medium;
+  font-size: 30px;
+  text-decoration: none !important;
+  color: var(--dark-blue);
+  margin-bottom:-10px;
+
+}
+
+#sub-base{
+  font-family: "RobotoMono", sans-serif;
+  font-size: 12px;
+  text-decoration: none !important;
+  color: var(--dark-blue);
+}
+
+#title-white{
+  font-family: "RobotoMono", sans-serif;
+  font-weight: medium;
+  font-style: medium;
+  font-size: 30px;
+  text-decoration: none !important;
+  color: var(--default-bg);
+  margin-bottom:-10px;
+}
+
+#sub-white{
+  font-family: "RobotoMono", sans-serif;
+  font-size: 12px;
+  text-decoration: none !important;
+  color: var(--default-bg);
+}

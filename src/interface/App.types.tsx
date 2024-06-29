@@ -6,6 +6,10 @@ export interface ExperienceProps {
 export interface ProjectsProps {
     [name: string]: ProjectJson;
 }
+
+export interface CaptionProps {
+    [key: string]: string
+}
   
 export interface ExperienceJson {
     short: string;
@@ -27,3 +31,8 @@ export interface ProjectJson {
     description: string;
 }
   
+export enum dataType {
+    EXPERIENCE, 
+    CAPTIONS, 
+    PROJECTS,
+}

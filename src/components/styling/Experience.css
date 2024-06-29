@@ -18,6 +18,16 @@
 }
 
 .container {
+    margin-left: 0 !important; /* Reset Bootstrap's default left margin */
+    margin-right: 0 !important; /* Reset Bootstrap's default right margin */
+}
+  
+.col {
+    padding-left: 0px; 
+    padding-right: 0; 
+}
+
+.container {
     padding-top: 20px;
 }
 
