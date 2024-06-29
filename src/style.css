@@ -1,3 +1,10 @@
+:root {
+  --dark-blue: #0927eb; /* Define a root variable for primary color */
+  --light-blue: #6a98f0;
+  --med-gray: #7d7f7c;
+  --nasa: #0A3B8D;
+}
+
 @font-face {
   font-family: "Argesta";
   src: local("Argesta"), url("./assets/fonts/Argesta.woff") format("woff");
@@ -19,4 +26,5 @@
 
 body {
   background-color: #F5F5F5 !important;
+  margin: 0 80px !important; 
 }
