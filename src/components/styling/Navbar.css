@@ -47,13 +47,26 @@
   color: var(--default-bg) !important;
 }
 
-.wordLink-default:hover,
+.wordLink-default:hover {
+  color: var(--dark-blue) !important;
+  transform: scale(1.1);
+}
 .wordLink-white:hover {
-  color: #6a98f0 !important;
+  color: var(--default-bg) !important;
   transform: scale(1.1);
 }
 
-.wordLink-default:hover::after,
+.wordLink-default:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--dark-blue); /* Adjusted to background color */
+  transition: width 0.3s ease;
+}
+
 .wordLink-white:hover::after {
   content: "";
   position: absolute;
@@ -61,7 +74,7 @@
   height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: #0927eb; /* Adjusted to background color */
+  background-color: var(--default-bg); /* Adjusted to background color */
   transition: width 0.3s ease;
 }
 

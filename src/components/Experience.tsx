@@ -24,7 +24,7 @@ const ExperiencePage: FC<ExperienceProps> = (experiences) => {
           </div>
           <div>
             <div className='r-head-container'>
-              <div className='medium-text'>CHECK OUT MY PROJECTS</div>
+              <div className='medium-text'>CHECK OUT MY PROJECTS...</div>
             </div>
             {/* Add content or components for your projects here */}
           </div>
