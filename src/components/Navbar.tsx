@@ -83,8 +83,8 @@ const Navbar: FC<CaptionProps> = (captions) =>{
       </nav>
       {header && caption && (
       <div className='info-container'>
-        <div className='header'>{header}</div>
-        <div className='caption'>{caption}</div>
+          <div className='header'>{header}</div>
+          <div className='caption'>{caption}</div>
       </div>
     )}
     </div>

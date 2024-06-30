@@ -12,6 +12,7 @@ export interface CaptionProps {
 }
   
 export interface ExperienceJson {
+    full: string;
     short: string;
     img: string;
     position: string;
@@ -19,6 +20,7 @@ export interface ExperienceJson {
     startDate: string;
     endDate: string;
     skills: string[];
+    summary: string;
     description: string;
 }
 

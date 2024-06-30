@@ -34,7 +34,7 @@
 
 .header {
     font-family: "Argesta", serif;
-    font-size: 75px;
+    font-size: 85px;
     color: var(--dark-blue) !important;
     padding: 0;
     margin-bottom: -5px;
@@ -45,39 +45,105 @@
     color: inherit; /* Inherit color from parent */
 }
 
-.medium-text-cont{
-    width: 500px;
-    word-wrap: break-word;
-}
+
 
 .medium-text{
     font-family: "RobotoMono", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     padding: 0;
     margin-top: -5px; /* Add negative margin if needed */
+    color: var(--dark-blue);
 }
 
 .image-crop {
-    width: 350px; /* Set the desired width */
-    height: 250px; /* Set the desired height */
-    object-fit: cover; /* Ensures the image covers the entire area, preserving aspect ratio */
-    overflow: hidden; /* Hides any part of the image that exceeds the specified dimensions */
+    width: 400px; 
+    height: 300px; 
+    object-fit: cover; 
 }
 
 .companyName{
     font-family: "RobotoMono", sans-serif;
-    font-size: 35px;
+    font-size: 32px;
     padding-bottom: -5px;
-    margin-bottom: -5px;
-    text-decoration: none;
+    margin-bottom: 2px;
+    color: var(--text-color);
+    letter-spacing: -1px;
+    word-spacing: -5px;
 }
 
   
 .sub-text{
     font-family: "RobotoMono", sans-serif;
+    line-break: auto;
+    font-size: 18px;
+    color: var(--text-color);
+    padding-top: -5px;
+    margin-bottom: 2px;
+    text-decoration: none;
+}
+
+.date{
+    font-family: "RobotoMono", sans-serif;
+    width: 500px;
+    line-break: auto;
     font-size: 20px;
     color: var(--med-gray);
     padding-top: -5px;
     margin-bottom: -5px;
     text-decoration: none;
+}
+
+
+.l-head-container{
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.r-head-container{
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.experiences-container{
+    text-decoration: none;
+}
+
+.experience-container{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    transition: transform 0.2s ease-in-out;
+    gap: 0;
+}
+
+.experience-container:hover {
+    transform: scale(1.025); /* Slightly magnify on hover */
+}
+
+.column{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-between;
+}
+
+.custom-line {
+    width: 30%;
+    border: none; /* Remove default border */
+    height: 2px; /* Adjust thickness as needed */
+    background-color: black; /* Fallback color */
+}
+
+.experience-link {
+    text-decoration: none; /* Remove underline from the Link */
+}
+
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 100px;
 }
