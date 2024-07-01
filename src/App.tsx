@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import ExperiencePage from './components/Experience';
 import ExperienceDetails from './components/ExperienceDetails'
 import Layout from './components/Layout';
+import About from './components/About';
 import { HashRouter } from 'react-router-dom';
 import { ExperienceProps, CaptionProps, dataType } from './interface/App.types';
 import { fetchData } from './utils/fetchFile';
@@ -40,7 +41,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<ExperiencePage {...exp}/>}/>
-          <Route path="/about" element={<h1>Hello</h1>}/>
+          <Route path="/about" element={<About/>}/>
           {exp && (
             Object.keys(exp).map((comp, index) => (
               <Route key={index} path={`/experience/${exp[comp].short}`} element={<ExperienceDetails {...exp[comp]} />} />

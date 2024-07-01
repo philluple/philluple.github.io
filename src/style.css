@@ -34,5 +34,6 @@ body {
 }
 
 .custom-body{
-    margin: 0 80px !important; 
+    margin: 15px 80px !important; 
+    padding-bottom: 50x;
 }
