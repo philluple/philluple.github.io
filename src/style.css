@@ -30,8 +30,10 @@
 
 body {
   background-color: var(--default-bg);
+  height: 100vh;
 }
 
 .custom-body{
-    margin: 0 80px !important; 
+    margin: 15px 80px !important; 
+    padding-bottom: 50x;
 }
