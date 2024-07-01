@@ -30,6 +30,7 @@
 
 body {
   background-color: var(--default-bg);
+  height: 100vh;
 }
 
 .custom-body{

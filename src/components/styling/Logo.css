@@ -6,6 +6,15 @@
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
+#back-bubble {
+  background-color: var(--default-bg); /* Background color of the bubble */
+  border-radius: 50px; /* Border radius to create rounded corners */
+  width: 250px;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
 #logo-container:hover{
   filter: brightness(1.2); /* Lighten the image */
   transform: scale(1.1); /* Magnify the image */
@@ -27,6 +36,7 @@
   font-size: 12px;
   text-decoration: none !important;
   color: var(--dark-blue);
+  padding-bottom: 20px;
 }
 
 #title-white{

@@ -40,6 +40,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<ExperiencePage {...exp}/>}/>
+          <Route path="/about" element={<h1>Hello</h1>}/>
           {exp && (
             Object.keys(exp).map((comp, index) => (
               <Route key={index} path={`/experience/${exp[comp].short}`} element={<ExperienceDetails {...exp[comp]} />} />
