@@ -6,14 +6,6 @@
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-#back-bubble {
-  background-color: var(--default-bg); /* Background color of the bubble */
-  border-radius: 50px; /* Border radius to create rounded corners */
-  width: 250px;
-  display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-}
 
 #logo-container:hover{
   filter: brightness(1.2); /* Lighten the image */
@@ -25,9 +17,9 @@
   font-weight: medium;
   font-style: medium;
   font-size: 30px;
+  margin-bottom: -10px;
   text-decoration: none !important;
   color: var(--dark-blue);
-  margin-bottom:-10px;
 
 }
 
@@ -36,7 +28,7 @@
   font-size: 12px;
   text-decoration: none !important;
   color: var(--dark-blue);
-  padding-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 #title-white{
@@ -44,9 +36,9 @@
   font-weight: medium;
   font-style: medium;
   font-size: 30px;
+  margin-bottom: -10px;
   text-decoration: none !important;
   color: var(--default-bg);
-  margin-bottom:-10px;
 }
 
 #sub-white{
@@ -54,4 +46,5 @@
   font-size: 12px;
   text-decoration: none !important;
   color: var(--default-bg);
+  margin-bottom: 5px;
 }

@@ -1,17 +1,8 @@
-
-export interface ExperienceProps {
-    [company: string]: ExperienceJson;
-}
-
-export interface ProjectsProps {
-    [name: string]: ProjectJson;
-}
-
-export interface CaptionProps {
+export interface Captions {
     [key: string]: string
 }
   
-export interface ExperienceJson {
+export interface BaseJSON {
     full: string;
     short: string;
     img: string;
@@ -21,15 +12,6 @@ export interface ExperienceJson {
     endDate: string;
     skills: string[];
     summary: string;
-    description: string;
-}
-
-export interface ProjectJson {
-    position: string;
-    tech: string[];
-    startDate: string;
-    endDate: string;
-    skills: string[];
     description: string;
 }
   
