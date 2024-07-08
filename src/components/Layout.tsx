@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import { CaptionProps } from '../interface/App.types';
+import { Captions } from '../interface/App.types';
 import { FC } from 'react';
 import Navbar from './Navbar';
 
-const Layout: FC<CaptionProps> = (captions) =>{
+const Layout: FC<Captions> = (captions) =>{
   return (
     <>
       <Navbar {...captions}/>

@@ -21,8 +21,10 @@ export default function Logo(){
       <>
       <Link to="/" style={{ textDecoration: 'none' }}>
         <div id='logo-container'>
-          <div id={titleID}>Phillip Le</div>
-          <div id={subID}>Software Engineer</div>
+          <div>
+            <div id={titleID}>Phillip Le</div>
+            <div id={subID}>Software Engineer</div>
+          </div>
         </div>
       </Link>
         
