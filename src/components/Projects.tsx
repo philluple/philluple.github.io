@@ -1,25 +1,27 @@
 import { FC, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BaseJSON } from '../interface/App.types';
-import { fetchAllData } from '../utils/common';
+import { BaseJSON, Blurb } from '../interface/App.types';
+import { fetchAllData, getBlurbs } from '../utils/common';
 import { dataType } from '../interface/App.types';
 import '../components/styling/Experience.css';
 
 const ProjectPage: FC = () => {
   const [projects, setProj] = useState<BaseJSON[]>([]); // Initialize state as an empty array
-
+  const [blurbs, setBlurbs] = useState<Blurb[]>([]);
   useEffect(() => {
-    const fetchExperiences = async () => {
+    const fetchProjects = async () => {
       try {
         const data = await fetchAllData(dataType.PROJECTS);
         if (data) {
           setProj(data as BaseJSON[]);
         }
+        const blurbs = await getBlurbs(dataType.EXPERIENCE);
+        setBlurbs(blurbs)
       } catch (error) {
         console.error('Error fetching experiences:', error);
       }
     };
-    fetchExperiences();
+    fetchProjects();
   }, []);
 
   return (
@@ -34,7 +36,7 @@ const ProjectPage: FC = () => {
               {/* Render data for each company */}
               {projects.map((project, index) => (
                 <div key={index}>
-                  <SubExperiencePage experience={project} />
+                  <SubProjectPage project={project} />
                   <hr className='custom-line' />
                 </div>
               ))}
@@ -42,7 +44,12 @@ const ProjectPage: FC = () => {
           </div>
           <div>
             <div className='r-head-container'>
-              <div className='medium-text'>CHECK OUT MY PROJECTS...</div>
+              <div className='medium-text'>CHECK OUT MY EXPERIENCES...</div>
+              {blurbs.map((blurb, index) => (
+                <div key={index}>
+                  <BlurbsView blurb={blurb}/>
+                </div>
+              ))}
             </div>
             {/* Add content or components for your projects here */}
           </div>
@@ -52,21 +59,36 @@ const ProjectPage: FC = () => {
   );
 };
 
-const SubExperiencePage: FC<{ experience: BaseJSON }> = ({ experience }) => {
+const SubProjectPage: FC<{ project: BaseJSON }> = ({ project }) => {
   return (
-    <Link to={`/project/${experience.short}`} className='experience-link'>
+    <Link to={`/project/${project.short}`} className='experience-link'>
       <div className='experience-container'>
         <div className='column'>
           <div>
-            <div className='companyName'>{experience.full}</div>
-            <div className='sub-text'>{experience.summary}</div>
-            <div className='date'>{experience.startDate} to {experience.endDate}</div>
+            <div className='companyName'>{project.full}</div>
+            <div className='sub-text'>{project.summary}</div>
+            <div className='date'>{project.startDate} to {project.endDate}</div>
           </div>
         </div>
-        <img src={experience.img} className='image-crop' alt={experience.full} />
+        <img src={project.img} className='image-crop' alt={project.full} />
       </div>
     </Link>
   );
 };
+
+const BlurbsView: FC<{ blurb: Blurb}> = ({blurb}) => {
+  return (
+    <Link to={`/experience/${blurb.short}`} className='experience-link'>
+      <div className='experience-container'>
+        <div className='column'>
+          <div>
+            <div className='companyName'>{blurb.full}</div>
+            <div className='sub-text'>{blurb.blurb}</div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 export default ProjectPage;

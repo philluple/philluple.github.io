@@ -18,17 +18,14 @@ export default function App() {
   const [cap, setCap] = useState<Captions | null>(null);
   useEffect(() => {
     const fetchDataAndSet = async () => {
-      const paths = await fetchPaths();
+      const exp = await fetchPaths('./data/metadata/experience.txt');
+      const proj = await fetchPaths('./data/metadata/projects.txt');
+      setExp(exp);
+      setProj(proj);
       const captions = await fetchCaptions();
       if (captions){
-        console.log()
         setCap(captions);
-      }
-      if (paths){
-        setExp(paths.experiences);
-        setProj(paths.projects);
-      }
-      
+      }      
     };
     fetchDataAndSet(); // Invoke the async function inside useEffect
   }, []);
@@ -43,15 +40,19 @@ export default function App() {
           <Route path="/experience" element={<ExperiencePage/>}/>
           <Route path="/about" element={<About/>}/>
           {exp && (
-            Object.keys(exp).map((experience, index) => (
+            exp.map((experience, index) => (
               <Route key={index} path={`/experience/${experience}`} element={<ExperienceDetails/>} />
             ))
           )}
           {proj && (
-            Object.keys(proj).map((project, index) => (
-              <Route key={index} path={`/project/${project}`} element={<ProjectDetails/>} />
-            ))
+            proj.map((project, index) => {
+              console.log(project);
+              return (
+                <Route key={index} path={`/project/${project}`} element={<ProjectDetails />} />
+              );
+            })
           )}
+
         </Route>
       </Routes>
     </HashRouter>

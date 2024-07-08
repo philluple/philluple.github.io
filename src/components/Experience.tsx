@@ -1,13 +1,13 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BaseJSON } from '../interface/App.types';
-import { fetchAllData } from '../utils/common';
+import { BaseJSON, Blurb } from '../interface/App.types';
+import { fetchAllData, getBlurbs } from '../utils/common';
 import { dataType } from '../interface/App.types';
 import '../components/styling/Experience.css';
 
 const ExperiencePage: FC = () => {
   const [experiences, setExperiences] = useState<BaseJSON[]>([]); // Initialize state as an empty array
-
+  const [blurbs, setBlurbs] = useState<Blurb[]>([]);
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
@@ -15,6 +15,8 @@ const ExperiencePage: FC = () => {
         if (data) {
           setExperiences(data as BaseJSON[]);
         }
+        const blurbs = await getBlurbs(dataType.PROJECTS);
+        setBlurbs(blurbs)
       } catch (error) {
         console.error('Error fetching experiences:', error);
       }
@@ -43,6 +45,11 @@ const ExperiencePage: FC = () => {
           <div>
             <div className='r-head-container'>
               <div className='medium-text'>CHECK OUT MY PROJECTS...</div>
+              {blurbs.map((blurb, index) => (
+                <div key={index}>
+                  <BlurbsView blurb={blurb}/>
+                </div>
+              ))}
             </div>
             {/* Add content or components for your projects here */}
           </div>
@@ -69,4 +76,18 @@ const SubExperiencePage: FC<{ experience: BaseJSON }> = ({ experience }) => {
   );
 };
 
+const BlurbsView: FC<{ blurb: Blurb}> = ({blurb}) => {
+  return (
+    <Link to={`/project/${blurb.short}`} className='experience-link'>
+      <div className='experience-container'>
+        <div className='column'>
+          <div>
+            <div className='companyName'>{blurb.full}</div>
+            <div className='sub-text'>{blurb.blurb}</div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
 export default ExperiencePage;

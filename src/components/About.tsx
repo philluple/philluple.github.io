@@ -7,7 +7,7 @@ export default function About (){
 
   useEffect(() => {
     async function fetchTxtFile() {
-      const response = await fetch('./data/about.txt');
+      const response = await fetch('./data/metadata/about.txt');
       const text = await response.text();
       setFileContent(text);
     }

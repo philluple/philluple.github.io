@@ -2,12 +2,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { FC, useState, useEffect, CSSProperties } from 'react'; // Import CSSProperties
 import Logo from './Logo';
 import './styling/Navbar.css';
-import { CaptionProps } from '../interface/App.types';
+import { Captions } from '../interface/App.types';
 
 // Import the image for the about background
 import aboutBackgroundImage from '../assets/about.svg';
 
-const Navbar: FC<CaptionProps> = (captions) => {
+const Navbar: FC<Captions> = (captions) => {
   const [linkClass, setLinkClass] = useState('wordLink-default');
   const [header, setHeader] = useState<string | null>(null);
   const [caption, setCaption] = useState<string | null>(null);
@@ -53,6 +53,30 @@ const Navbar: FC<CaptionProps> = (captions) => {
     } else if (location.pathname === '/projects') {
       setHeader("Personal Projects");
       setCaption(captions["projects"]);
+      setLinkClass('wordLink-white');
+      setBackgroundStyle({
+        backgroundColor: 'var(--dark-blue)',
+        height: '300px'
+      });
+    } else if (location.pathname === '/project/lionpool'){
+      setHeader("Founder of Lion Pool");
+      setCaption(captions["lionpool"]);
+      setLinkClass('wordLink-white');
+      setBackgroundStyle({
+        backgroundColor: 'var(--ta)',
+        height: '300px'
+      });
+    } else if (location.pathname === '/project/stepitup'){
+      setHeader("Lead Developer for Step It Up!");
+      setCaption(captions["stepitup"]);
+      setLinkClass('wordLink-white');
+      setBackgroundStyle({
+        backgroundColor: 'var(--step-it-up)',
+        height: '300px'
+      });
+    } else if (location.pathname === '/project/phillipcodes'){
+      setHeader("Designer and Developer for Personal Website");
+      setCaption(captions["phillipcodes"]);
       setLinkClass('wordLink-white');
       setBackgroundStyle({
         backgroundColor: 'var(--dark-blue)',

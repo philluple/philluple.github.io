@@ -13,8 +13,10 @@ const ProjectDetails: FC = () => {
       const fetchExperience = async() => {
         if (location.pathname){
           const file = getSegment(location.pathname)
+          console.log(location.pathname)
           const data = await fetchJson(dataType.PROJECTS, file)
           if (data){
+            console.log(data)
             setProj(data as BaseJSON)
           } else {
             return (
