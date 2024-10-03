@@ -1,6 +1,6 @@
 # philluple.github.io
 
-This repository hosts the source code for my personal website, **[phillip-codes.com]((https://phillip-codes.com/)**. The site showcases my work, experience, and projects as I pursue my MS in Computer Science at Columbia University. It serves as a digital portfolio, providing insight into my journey as an aspiring software engineer.
+This repository hosts the source code for my personal website, **[phillip-codes.com](https://phillip-codes.com/)**. The site showcases my work, experience, and projects as I pursue my MS in Computer Science at Columbia University. It serves as a digital portfolio, providing insight into my journey as an aspiring software engineer.
 
 ### Features
 
