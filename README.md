@@ -1,31 +1,20 @@
-# React + TypeScript + Vite
+# philluple.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository hosts the source code for my personal website, **phillip-codes.com**. The site showcases my work, experience, and projects as I pursue my MS in Computer Science at Columbia University. It serves as a digital portfolio, providing insight into my journey as an aspiring software engineer.
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **About Me**: Learn more about my background, education, and career path.
+- **Projects**: Highlighted projects, including school-assigned and personal work.
+- **Work Experience** Detailed exploration of the things I learned and my experience throughout my work experience. 
+- **Contact**: Links to connect with me via LinkedIn, GitHub, or email.
 
-## Expanding the ESLint configuration
+### Purpose
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This website was designed to give visitors a detailed look into my technical skills and projects, as well as to offer an easy way for potential employers or collaborators to connect with me.
 
-- Configure the top-level `parserOptions` property like this:
+I built this site using **TypeScript** to learn the language in preparation for my role at **Relativity Space**. It also reflects my passion for design and UI, blending my coding skills with an aesthetic I enjoy. This project allowed me to merge both the technical and creative aspects of web development.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Development
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# portfolio.io
+The site is built using modern web development practices and technologies. It is continuously updated to reflect new projects and changes in my professional journey.
