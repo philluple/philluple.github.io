@@ -1,50 +1,30 @@
-#logo-container{
+#logo-container {
   display: flex;
   align-items: flex-start;
   height: 50px;
-  flex-direction: column; 
+  flex-direction: column;
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-
-#logo-container:hover{
-  filter: brightness(1.2); /* Lighten the image */
-  transform: scale(1.1); /* Magnify the image */
+#logo-container:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
 }
 
-#title-base{
+#logo-title {
   font-family: "RobotoMono", sans-serif;
   font-weight: medium;
   font-style: medium;
   font-size: 30px;
   margin-bottom: -10px;
   text-decoration: none !important;
-  color: var(--dark-blue);
-
+  transition: color 0.5s ease;
 }
 
-#sub-base{
+#logo-sub {
   font-family: "RobotoMono", sans-serif;
   font-size: 12px;
   text-decoration: none !important;
-  color: var(--dark-blue);
   margin-bottom: 0px;
-}
-
-#title-white{
-  font-family: "RobotoMono", sans-serif;
-  font-weight: medium;
-  font-style: medium;
-  font-size: 30px;
-  margin-bottom: -10px;
-  text-decoration: none !important;
-  color: var(--default-bg);
-}
-
-#sub-white{
-  font-family: "RobotoMono", sans-serif;
-  font-size: 12px;
-  text-decoration: none !important;
-  color: var(--default-bg);
-  margin-bottom: 5px;
+  transition: color 0.5s ease;
 }

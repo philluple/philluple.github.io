@@ -8,6 +8,7 @@
   --ta: #6CADDE;
   --text-color: #212529;
   --step-it-up: #03313d;
+  --bloomberg: #1A1A1A;
 }
 
 @font-face {
@@ -29,12 +30,18 @@
   font-style: medium;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 body {
   background-color: var(--default-bg);
   height: 100vh;
 }
 
-.custom-body{
-    margin: 15px 80px !important; 
-    padding-bottom: 50x;
+.custom-body {
+  margin: 15px 80px !important;
+  padding-bottom: 50px;
+  animation: fadeIn 0.35s ease;
 }

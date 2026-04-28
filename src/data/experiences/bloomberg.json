@@ -1,0 +1,13 @@
+{
+    "full": "Bloomberg LP",
+    "short": "bloomberg",
+    "img": "./bloomberg.png",
+    "position": "Software Engineer, Terminal Backend Connectivity",
+    "tech": ["C++", "Distributed Systems", "RAPID", "R+"],
+    "startDate": "June 2025",
+    "endDate": "Present",
+    "blurb": "Building mission-critical infrastructure for the Bloomberg Terminal.",
+    "skills": [],
+    "summary": "Building the core infrastructure that keeps the Bloomberg Terminal connected and performant for millions of financial professionals worldwide.",
+    "description": "I joined Bloomberg LP in June 2025 as a Software Engineer on the Terminal Backend Connectivity team. Our team owns the core infrastructure responsible for keeping the Bloomberg Terminal alive — at peak, we support over 5 million concurrent RAPID application executions, process over 500 million R+ worker requests per day, and over 250 billion messages flow through USER machines back to the terminal.\n\nOur work spans authorization, routing, load balancing, and the execution of user-requested functions. The software we maintain is mission-critical — reliability and performance are non-negotiable when the financial world depends on it.\n\nBeyond maintaining the existing infrastructure, I am contributing to the next generation of terminal architecture. This involves incorporating industry-standard protocols and building a truly distributed backend that can scale horizontally to meet the demands of the future. The new infrastructure leverages cutting-edge web frameworks to serve the terminal in ways the legacy system could not.\n\nMy day-to-day involves writing C++ with a focus on correctness, performance, and reliability. I collaborate closely with the sibling SRE team on the operational environment and work across multiple teams to deliver improvements to one of the most widely used financial platforms in the world."
+}
