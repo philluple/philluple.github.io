@@ -40,17 +40,14 @@ export default function App() {
           <Route path="/experience" element={<ExperiencePage/>}/>
           <Route path="/about" element={<About/>}/>
           {exp && (
-            exp.map((experience, index) => (
-              <Route key={index} path={`/experience/${experience}`} element={<ExperienceDetails/>} />
+            exp.map((experience) => (
+              <Route key={experience} path={`/experience/${experience}`} element={<ExperienceDetails/>} />
             ))
           )}
           {proj && (
-            proj.map((project, index) => {
-              console.log(project);
-              return (
-                <Route key={index} path={`/project/${project}`} element={<ProjectDetails />} />
-              );
-            })
+            proj.map((project) => (
+              <Route key={project} path={`/project/${project}`} element={<ProjectDetails />} />
+            ))
           )}
 
         </Route>

@@ -34,8 +34,8 @@ const ExperiencePage: FC = () => {
             </div>
             <div className='experiences-container'>
               {/* Render data for each company */}
-              {experiences.map((experience, index) => (
-                <div key={index}>
+              {experiences.map((experience) => (
+                <div key={experience.short}>
                   <SubExperiencePage experience={experience} />
                   <hr className='custom-line' />
                 </div>
@@ -45,8 +45,8 @@ const ExperiencePage: FC = () => {
           <div>
             <div className='r-head-container'>
               <div className='medium-text'>CHECK OUT MY PROJECTS...</div>
-              {blurbs.map((blurb, index) => (
-                <div key={index}>
+              {blurbs.map((blurb) => (
+                <div key={blurb.short}>
                   <BlurbsView blurb={blurb}/>
                 </div>
               ))}

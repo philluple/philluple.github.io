@@ -66,12 +66,10 @@ export async function fetchPaths(file: string): Promise<string[]>{
 export async function fetchJson(data: dataType, ref: string): Promise<BaseJSON | null>{
   try{
     let file: string;
-    if (data==dataType.EXPERIENCE){
+    if (data === dataType.EXPERIENCE){
       file = `./data/experiences/${ref}.json`
-      console.log(file)
     } else {
       file = `./data/projects/${ref}.json`
-      console.log(file)
     }
     const response = await fetch(file)
     if (response){

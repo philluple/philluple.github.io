@@ -8,14 +8,14 @@ export default function Logo(){
     const [subID, setSubID] = useState('sub-base')
 
     useEffect(() =>{
-      if (location.pathname === '/' || location.pathname == '/about'){
+      if (location.pathname === '/' || location.pathname === '/about'){
         setTitleID('title-base')
         setSubID('sub-base')
       } else {
         setTitleID('title-white')
         setSubID('sub-white')
       }
-    });
+    }, [location.pathname]);
     
     return (
       <>

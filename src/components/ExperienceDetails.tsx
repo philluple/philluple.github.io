@@ -8,6 +8,7 @@ import '../style.css'
 
 const ExperienceDetails: FC = () => {
     const [experience, setExperience] = useState<BaseJSON>();
+    const [error, setError] = useState(false);
     const location = useLocation();
     useEffect(() => {
       const fetchExperience = async() => {
@@ -17,19 +18,14 @@ const ExperienceDetails: FC = () => {
           if (data){
             setExperience(data as BaseJSON)
           } else {
-            return (
-              <h1>There was an error</h1>
-            )
+            setError(true);
           }
         }
       }
       fetchExperience();
-    }, []);
-    
+    }, [location.pathname]);
 
-    useEffect(() =>{
-
-    })
+    if (error) return <h1>There was an error</h1>;
     return (
         <>
           <div className='custom-body'>

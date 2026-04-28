@@ -34,8 +34,8 @@ const ProjectPage: FC = () => {
             </div>
             <div className='experiences-container'>
               {/* Render data for each company */}
-              {projects.map((project, index) => (
-                <div key={index}>
+              {projects.map((project) => (
+                <div key={project.short}>
                   <SubProjectPage project={project} />
                   <hr className='custom-line' />
                 </div>
@@ -45,8 +45,8 @@ const ProjectPage: FC = () => {
           <div>
             <div className='r-head-container'>
               <div className='medium-text'>CHECK OUT MY EXPERIENCES...</div>
-              {blurbs.map((blurb, index) => (
-                <div key={index}>
+              {blurbs.map((blurb) => (
+                <div key={blurb.short}>
                   <BlurbsView blurb={blurb}/>
                 </div>
               ))}
