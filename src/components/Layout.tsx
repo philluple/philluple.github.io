@@ -1,15 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import { Captions } from '../interface/App.types';
 import { FC } from 'react';
 import Navbar from './Navbar';
 
-const Layout: FC<Captions> = (captions) =>{
+const Layout: FC = () => {
   return (
     <>
-      <Navbar {...captions}/>
+      <Navbar />
       <Outlet />
     </>
   );
 }
 
-export default Layout
+export default Layout;
