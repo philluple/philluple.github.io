@@ -1,9 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { FC, CSSProperties } from 'react';
+import { FC, CSSProperties, useState, useEffect } from 'react';
 import Logo from './Logo';
-import './styling/Navbar.css';
 import { captions } from '../data';
-import aboutBackgroundImage from '../assets/about.svg';
 
 type NavConfig = {
   linkClass: 'wordLink-default' | 'wordLink-white';
@@ -12,7 +10,7 @@ type NavConfig = {
   backgroundStyle: CSSProperties;
 };
 
-function getNavConfig(pathname: string): NavConfig {
+function getNavConfig(pathname: string, aboutUrl: string | null): NavConfig {
   const dark = (bg: string): NavConfig['backgroundStyle'] => ({
     backgroundColor: bg,
     height: '300px',
@@ -59,8 +57,11 @@ function getNavConfig(pathname: string): NavConfig {
     backgroundStyle: {
       backgroundColor: 'var(--default-bg)',
       width: '100vw', height: '300px',
-      backgroundImage: `url(${aboutBackgroundImage})`,
-      backgroundSize: 'cover', backgroundPosition: 'center',
+      ...(aboutUrl && {
+        backgroundImage: `url(${aboutUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }),
     },
   };
   return {
@@ -71,7 +72,15 @@ function getNavConfig(pathname: string): NavConfig {
 
 const Navbar: FC = () => {
   const location = useLocation();
-  const { linkClass, header, caption, backgroundStyle } = getNavConfig(location.pathname);
+  const [aboutUrl, setAboutUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (location.pathname === '/about' && !aboutUrl) {
+      import('../assets/about.svg').then((mod) => setAboutUrl(mod.default));
+    }
+  }, [location.pathname, aboutUrl]);
+
+  const { linkClass, header, caption, backgroundStyle } = getNavConfig(location.pathname, aboutUrl);
   const showInfo = header !== null && caption !== null;
 
   return (
@@ -85,8 +94,8 @@ const Navbar: FC = () => {
         </ul>
       </nav>
       <div className={`info-container ${showInfo ? 'info-visible' : ''}`}>
-        <div className='header'>{header ?? ''}</div>
-        <div className='caption'>{caption ?? ''}</div>
+        <div className='nav-header'>{header ?? ''}</div>
+        <div className='nav-caption'>{caption ?? ''}</div>
       </div>
     </div>
   );

@@ -2,8 +2,6 @@ import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getSegment } from '../utils/common';
 import { projects } from '../data';
-import './styling/ExperienceDetails.css';
-import '../style.css';
 
 const ProjectDetails: FC = () => {
   const location = useLocation();

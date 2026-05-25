@@ -1,4 +1,3 @@
-import "./styling/Home.css";
 import { useState } from "react";
 
 const EMAIL = "le.phillup@gmail.com";
