@@ -1,140 +1,93 @@
 import { Link, useLocation } from 'react-router-dom';
-import { FC, useState, useEffect, CSSProperties } from 'react'; // Import CSSProperties
+import { FC, CSSProperties } from 'react';
 import Logo from './Logo';
 import './styling/Navbar.css';
-import { Captions } from '../interface/App.types';
-
-// Import the image for the about background
+import { captions } from '../data';
 import aboutBackgroundImage from '../assets/about.svg';
 
-const Navbar: FC<Captions> = (captions) => {
-  const [linkClass, setLinkClass] = useState('wordLink-default');
-  const [header, setHeader] = useState<string | null>(null);
-  const [caption, setCaption] = useState<string | null>(null);
-  const [backgroundStyle, setBackgroundStyle] = useState<CSSProperties>({ // Specify CSSProperties type
-    backgroundColor: 'var(--default-bg)', // Use as a string
-    height: '80px' // Default height
-  });
-  const location = useLocation();
+type NavConfig = {
+  linkClass: 'wordLink-default' | 'wordLink-white';
+  header: string | null;
+  caption: string | null;
+  backgroundStyle: CSSProperties;
+};
 
-  useEffect(() => {
-    if (location.pathname === '/experience') {
-      setHeader("Formative Experiences");
-      setCaption(captions["experience"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--dark-blue)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/experience/jpl') {
-      setHeader("NASA Jet Propulsion Lab");
-      setCaption(captions["jpl"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--nasa)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/experience/relativity') {
-      setHeader("Relativity Space");
-      setCaption(captions["relativity"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--rela)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/experience/columbia') {
-      setHeader("Course Assistant for Advanced Programming in C");
-      setCaption(captions["columbia"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--ta)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/projects') {
-      setHeader("Personal Projects");
-      setCaption(captions["projects"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--dark-blue)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/project/lionpool'){
-      setHeader("Founder of Lion Pool");
-      setCaption(captions["lionpool"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--ta)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/project/stepitup'){
-      setHeader("Lead Developer for Step It Up!");
-      setCaption(captions["stepitup"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--step-it-up)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/project/phillipcodes'){
-      setHeader("Designer and Developer for Personal Website");
-      setCaption(captions["phillipcodes"]);
-      setLinkClass('wordLink-white');
-      setBackgroundStyle({
-        backgroundColor: 'var(--dark-blue)',
-        height: '300px'
-      });
-    } else if (location.pathname === '/') {
-      setHeader(null);
-      setCaption(null);
-      setLinkClass('wordLink-default');
-      setBackgroundStyle({
-        backgroundColor: 'inherit',
-        height: '80px'
-      });
-    } else if (location.pathname === '/about') {
-      setHeader(null);
-      setCaption(null);
-      setLinkClass('wordLink-default');
-      setBackgroundStyle({
-        backgroundColor: 'inherit',
-        width: "100vw",
-        height: "300px",
-        backgroundImage: `url(${aboutBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      });
-    } else {
-      setHeader(null);
-      setCaption(null);
-      setLinkClass('wordLink-default');
-      setBackgroundStyle({
-        backgroundColor: 'inherit',
-        height: '80px'
-      });
-    }
-  }, [location.pathname, captions, aboutBackgroundImage]);
+function getNavConfig(pathname: string): NavConfig {
+  const dark = (bg: string): NavConfig['backgroundStyle'] => ({
+    backgroundColor: bg,
+    height: '300px',
+  });
+
+  if (pathname === '/experience/bloomberg') return {
+    linkClass: 'wordLink-white', header: 'Bloomberg LP',
+    caption: captions['bloomberg'], backgroundStyle: dark('var(--bloomberg)'),
+  };
+  if (pathname === '/experience') return {
+    linkClass: 'wordLink-white', header: 'Formative Experiences',
+    caption: captions['experience'], backgroundStyle: dark('var(--dark-blue)'),
+  };
+  if (pathname === '/experience/jpl') return {
+    linkClass: 'wordLink-white', header: 'NASA Jet Propulsion Lab',
+    caption: captions['jpl'], backgroundStyle: dark('var(--nasa)'),
+  };
+  if (pathname === '/experience/relativity') return {
+    linkClass: 'wordLink-white', header: 'Relativity Space',
+    caption: captions['relativity'], backgroundStyle: dark('var(--rela)'),
+  };
+  if (pathname === '/experience/columbia') return {
+    linkClass: 'wordLink-white', header: 'Course Assistant for Advanced Programming in C',
+    caption: captions['columbia'], backgroundStyle: dark('var(--ta)'),
+  };
+  if (pathname === '/projects') return {
+    linkClass: 'wordLink-white', header: 'Personal Projects',
+    caption: captions['projects'], backgroundStyle: dark('var(--dark-blue)'),
+  };
+  if (pathname === '/project/lionpool') return {
+    linkClass: 'wordLink-white', header: 'Founder of Lion Pool',
+    caption: captions['lionpool'], backgroundStyle: dark('var(--ta)'),
+  };
+  if (pathname === '/project/stepitup') return {
+    linkClass: 'wordLink-white', header: 'Lead Developer for Step It Up!',
+    caption: captions['stepitup'], backgroundStyle: dark('var(--step-it-up)'),
+  };
+  if (pathname === '/project/phillipcodes') return {
+    linkClass: 'wordLink-white', header: 'Designer and Developer for Personal Website',
+    caption: captions['phillipcodes'], backgroundStyle: dark('var(--dark-blue)'),
+  };
+  if (pathname === '/about') return {
+    linkClass: 'wordLink-default', header: null, caption: null,
+    backgroundStyle: {
+      backgroundColor: 'var(--default-bg)',
+      width: '100vw', height: '300px',
+      backgroundImage: `url(${aboutBackgroundImage})`,
+      backgroundSize: 'cover', backgroundPosition: 'center',
+    },
+  };
+  return {
+    linkClass: 'wordLink-default', header: null, caption: null,
+    backgroundStyle: { backgroundColor: 'inherit', height: '80px' },
+  };
+}
+
+const Navbar: FC = () => {
+  const location = useLocation();
+  const { linkClass, header, caption, backgroundStyle } = getNavConfig(location.pathname);
+  const showInfo = header !== null && caption !== null;
 
   return (
     <div className='nav-background' style={backgroundStyle}>
       <nav className='nav'>
         <Logo />
         <ul>
-          <li>
-            <Link to="/experience" className={linkClass}>EXPERIENCE</Link>
-          </li>
-          <li>
-            <Link to="/projects" className={linkClass}>PROJECTS</Link>
-          </li>
-          <li>
-            <Link to="/about" className={linkClass}>ABOUT</Link>
-          </li>
+          <li><Link to="/experience" className={linkClass}>EXPERIENCE</Link></li>
+          <li><Link to="/projects" className={linkClass}>PROJECTS</Link></li>
+          <li><Link to="/about" className={linkClass}>ABOUT</Link></li>
         </ul>
       </nav>
-      {header && caption && (
-        <div className='info-container'>
-          <div className='header'>{header}</div>
-          <div className='caption'>{caption}</div>
-        </div>
-      )}
+      <div className={`info-container ${showInfo ? 'info-visible' : ''}`}>
+        <div className='header'>{header ?? ''}</div>
+        <div className='caption'>{caption ?? ''}</div>
+      </div>
     </div>
   );
 };

@@ -1,60 +1,39 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BaseJSON, Blurb } from '../interface/App.types';
-import { fetchAllData, getBlurbs } from '../utils/common';
-import { dataType } from '../interface/App.types';
+import { getBlurbs } from '../utils/common';
+import { experiences, projects } from '../data';
 import '../components/styling/Experience.css';
 
 const ProjectPage: FC = () => {
-  const [projects, setProj] = useState<BaseJSON[]>([]); // Initialize state as an empty array
-  const [blurbs, setBlurbs] = useState<Blurb[]>([]);
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const data = await fetchAllData(dataType.PROJECTS);
-        if (data) {
-          setProj(data as BaseJSON[]);
-        }
-        const blurbs = await getBlurbs(dataType.EXPERIENCE);
-        setBlurbs(blurbs)
-      } catch (error) {
-        console.error('Error fetching experiences:', error);
-      }
-    };
-    fetchProjects();
-  }, []);
-
+  const blurbs = getBlurbs(experiences);
   return (
     <div className='custom-body'>
-      {projects && (
-        <div className='table'>
-          <div>
-            <div className='l-head-container'>
-              <div className='medium-text'>RECENT WORK</div>
-            </div>
-            <div className='experiences-container'>
-              {/* Render data for each company */}
-              {projects.map((project, index) => (
-                <div key={index}>
-                  <SubProjectPage project={project} />
-                  <hr className='custom-line' />
-                </div>
-              ))}
-            </div>
+      <div className='table'>
+        <div>
+          <div className='l-head-container'>
+            <div className='medium-text'>RECENT WORK</div>
           </div>
-          <div>
-            <div className='r-head-container'>
-              <div className='medium-text'>CHECK OUT MY EXPERIENCES...</div>
-              {blurbs.map((blurb, index) => (
-                <div key={index}>
-                  <BlurbsView blurb={blurb}/>
-                </div>
-              ))}
-            </div>
-            {/* Add content or components for your projects here */}
+          <div className='experiences-container'>
+            {projects.map((project) => (
+              <div key={project.short}>
+                <SubProjectPage project={project} />
+                <hr className='custom-line' />
+              </div>
+            ))}
           </div>
         </div>
-      )}
+        <div>
+          <div className='r-head-container'>
+            <div className='medium-text'>CHECK OUT MY EXPERIENCES...</div>
+            {blurbs.map((blurb) => (
+              <div key={blurb.short}>
+                <BlurbsView blurb={blurb} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -76,7 +55,7 @@ const SubProjectPage: FC<{ project: BaseJSON }> = ({ project }) => {
   );
 };
 
-const BlurbsView: FC<{ blurb: Blurb}> = ({blurb}) => {
+const BlurbsView: FC<{ blurb: Blurb }> = ({ blurb }) => {
   return (
     <Link to={`/experience/${blurb.short}`} className='experience-link'>
       <div className='experience-container'>
@@ -88,7 +67,7 @@ const BlurbsView: FC<{ blurb: Blurb}> = ({blurb}) => {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
 export default ProjectPage;
