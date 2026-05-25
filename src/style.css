@@ -1,6 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-blue: #0927eb;
+  --color-default-bg: #F5F5F5;
+  --color-light-blue: #6a98f0;
+  --color-med-gray: #7d7f7c;
+  --color-nasa: #03112C;
+  --color-rela: #212529;
+  --color-ta: #6CADDE;
+  --color-text-color: #212529;
+  --color-step-it-up: #03313d;
+  --color-bloomberg: #1A1A1A;
+}
+
 :root {
-  --dark-blue: #0927eb; 
-  --default-bg:#F5F5F5;
+  --dark-blue: #0927eb;
+  --default-bg: #F5F5F5;
   --light-blue: #6a98f0;
   --med-gray: #7d7f7c;
   --nasa: #03112C;
@@ -40,8 +55,337 @@ body {
   height: 100vh;
 }
 
-.custom-body {
-  margin: 15px 80px !important;
-  padding-bottom: 50px;
-  animation: fadeIn 0.35s ease;
+/* ===================== Navbar ===================== */
+
+@layer components {
+  .nav-background {
+    transition: background-color 0.5s ease, height 0.5s ease;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 15px;
+    margin: 0 80px;
+  }
+
+  .nav img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav img:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+  }
+
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+  }
+
+  .wordLink-default,
+  .wordLink-white {
+    font-size: 16px;
+    font-family: "RobotoMono", sans-serif;
+    transition: color 0.5s ease, transform 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+  .wordLink-default {
+    color: var(--dark-blue) !important;
+  }
+
+  .wordLink-white {
+    color: var(--default-bg) !important;
+  }
+
+  .wordLink-default:hover {
+    color: var(--dark-blue) !important;
+    transform: scale(1.1);
+  }
+
+  .wordLink-white:hover {
+    color: var(--default-bg) !important;
+    transform: scale(1.1);
+  }
+
+  .wordLink-default:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--dark-blue);
+    transition: width 0.3s ease;
+  }
+
+  .wordLink-white:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--default-bg);
+    transition: width 0.3s ease;
+  }
+
+  .info-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 40px 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+  }
+
+  .info-container.info-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-header {
+    font-family: "Argesta", sans-serif;
+    font-size: 50px;
+    color: var(--default-bg) !important;
+  }
+
+  .nav-caption {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 20px;
+    color: var(--default-bg);
+    width: 55%;
+  }
+
+  #link-bubble {
+    background-color: var(--default-bg);
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* ===================== Logo ===================== */
+
+@layer components {
+  #logo-container {
+    display: flex;
+    align-items: flex-start;
+    height: 50px;
+    flex-direction: column;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  #logo-container:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+  }
+
+  #logo-title {
+    font-family: "RobotoMono", sans-serif;
+    font-weight: medium;
+    font-style: medium;
+    font-size: 30px;
+    margin-bottom: -10px;
+    text-decoration: none !important;
+    transition: color 0.5s ease;
+  }
+
+  #logo-sub {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 12px;
+    text-decoration: none !important;
+    margin-bottom: 0px;
+    transition: color 0.5s ease;
+  }
+}
+
+/* ===================== Home ===================== */
+
+@layer components {
+  .mid-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .large-name {
+    font-family: "Argesta", serif;
+    font-size: 175px;
+    color: #0927eb !important;
+    padding: 0;
+    letter-spacing: -5px;
+  }
+
+  .description {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 16px;
+    margin-top: -20px;
+    max-width: 400px;
+    word-wrap: break-word;
+    padding: 0;
+  }
+
+  .contact {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 16px;
+    margin-top: 40px;
+    max-width: 400px;
+    word-wrap: break-word;
+    padding: 0;
+    color: #0927eb !important;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+    user-select: none;
+  }
+
+  .contact:hover {
+    opacity: 0.7;
+  }
+}
+
+/* ===================== Experience / Projects ===================== */
+
+@layer components {
+  .custom-body {
+    margin: 15px 80px;
+    padding-bottom: 50px;
+    animation: fadeIn 0.35s ease;
+  }
+
+  .mid-ex-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  .table-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 100px;
+  }
+
+  .l-head-container {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .r-head-container {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .medium-text {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 20px;
+    padding: 0;
+    margin-top: -5px;
+    color: var(--dark-blue);
+  }
+
+  .experiences-container {
+    text-decoration: none;
+  }
+
+  .experience-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    transition: transform 0.2s ease-in-out;
+    gap: 0;
+  }
+
+  .experience-container:hover {
+    transform: scale(1.025);
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .companyName {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 32px;
+    padding-bottom: 0;
+    margin-bottom: 2px;
+    color: var(--text-color);
+    letter-spacing: -1px;
+    word-spacing: -5px;
+  }
+
+  .sub-text {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  .date {
+    font-family: "RobotoMono", sans-serif;
+    width: 500px;
+    font-size: 20px;
+    color: var(--med-gray);
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+
+  .image-crop {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .custom-line {
+    width: 30%;
+    border: none;
+    height: 2px;
+    background-color: black;
+  }
+
+  .experience-link {
+    text-decoration: none;
+  }
+}
+
+/* ===================== ExperienceDetails / ProjectDetails / About ===================== */
+
+@layer components {
+  .text-container {
+    margin-top: 75px;
+  }
+
+  .long-text {
+    font-family: "RobotoMono", sans-serif;
+    font-size: 18px;
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
 }

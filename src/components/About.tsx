@@ -1,5 +1,3 @@
-import './styling/ExperienceDetails.css';
-import '../style.css';
 import { aboutContent } from '../data';
 
 export default function About() {

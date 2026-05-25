@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import { BaseJSON, Blurb } from '../interface/App.types';
 import { getBlurbs } from '../utils/common';
 import { experiences, projects } from '../data';
-import '../components/styling/Experience.css';
 
 const ProjectPage: FC = () => {
   const blurbs = getBlurbs(experiences);
   return (
     <div className='custom-body'>
-      <div className='table'>
+      <div className='table-layout'>
         <div>
           <div className='l-head-container'>
             <div className='medium-text'>RECENT WORK</div>

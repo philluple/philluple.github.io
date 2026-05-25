@@ -8,7 +8,6 @@ import Layout from './components/Layout';
 import About from './components/About';
 import { HashRouter } from 'react-router-dom';
 import { experiences, projects } from './data';
-import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App() {
   return (
