@@ -63,3 +63,15 @@
 - **Files:** `src/components/Logo.tsx` (line 11), `src/utils/common.ts` (line 69)
 - **Why:** Inconsistent equality operators; `==` allows type coercion and is a lint error under most rule sets.
 - **How:** Change both occurrences to `===`.
+
+## 13. Add GitHub Actions deployment workflow
+- **Files:** `.github/workflows/deploy.yml` (new), `package.json`, repo Settings
+- **Why:** Currently deployment is manual — you must have Node locally and run `npm run deploy` yourself. GitHub Actions automates this: every push to `main` triggers a cloud build and deploy. No local build environment needed, and you get a deployment history in the Actions tab.
+- **How:**
+  1. Create `.github/workflows/deploy.yml` with a workflow that:
+     - Triggers on push to `main`
+     - Runs `npm ci` and `npm run build`
+     - Uploads `dist/` and deploys to GitHub Pages via the official `actions/deploy-pages` action
+  2. Remove `predeploy` and `deploy` scripts from `package.json` (no longer needed)
+  3. Remove `gh-pages` from `devDependencies` in `package.json`, then run `npm install`
+  4. In the repo on GitHub: go to **Settings → Pages → Source** and switch from "Deploy from a branch" to **"GitHub Actions"**
